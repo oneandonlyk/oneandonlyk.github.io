@@ -8,7 +8,7 @@
 </body>
 <script>
 	var obj = {table: []};
-	var fs = require(fs);
+	var fs = required(fs);
 	
 	function fehlermeldung(){
 		fs.readFile('db.json', json, 'utf-8', function readFileCallback(err, data){
