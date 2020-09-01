@@ -7,8 +7,21 @@
   <p>Fehlermeldung <button onclick="fehlermeldung()">Senden</button></p>
 </body>
 <script>
+	var obj = {table: []};
+	var fs = require(fs);
+	
 	function fehlermeldung(){
-	console.log("540");
-	}
+		fs.readFile('db.json', json, 'utf-8', function readFileCallback(err, data){
+			if(err){
+				console.log(err);
+				}
+			else{
+			obj = JSON.parse(data);
+			obj.table.push({id:1, name:540, status:red});
+			json = JSON.stringify(obj);
+			fs.writeFile('db.json', json, 'utf-8', callback);
+			}
+		}
+	};
 </script>
 </html>
