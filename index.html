@@ -27,7 +27,7 @@ const options = {
   body: JSON.stringify(body),
 }
 
-fetch("https://041ac8780c033011093ce85c942b9346.m.pipedream.net", options).then(response => {
+fetch("http://arburg.aucobo-global.de/connectors/events", options).then(response => {
   console.log(response)
 }).catch(err => {
   console.error("[error] " + err.message)
