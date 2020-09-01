@@ -15,22 +15,23 @@
 		console.log("ready");
 		
 		document.getElementById("fehler").addEventListener("click", function(){
-			$.ajax({
-			type: "POST",
-			url: "db.json",
-			// The key needs to match your method's input parameter (case-sensitive).
-			data: JSON.stringify({
-			  "machine": [
-			    { "id": 1, "name": "540", "status": "red" }
-			    ]
-			}),
-			contentType: "application/json; charset=utf-8",
-			dataType: "json",
-			success: function(data){alert(data);},
-			failure: function(errMsg) {
-				alert(errMsg);
-				}
-			}); 
+			const headers = new Headers()
+headers.append("Content-Type", "application/json")
+
+const body = {"message":"The force is strong with this one..."}
+
+const options = {
+  method: "POST",
+  headers,
+  mode: "cors",
+  body: JSON.stringify(body),
+}
+
+fetch("https://041ac8780c033011093ce85c942b9346.m.pipedream.net", options).then(response => {
+  console.log(response)
+}).catch(err => {
+  console.error("[error] " + err.message)
+})
 		});
 	})(jQuery); 
 </script>
