@@ -17,7 +17,7 @@
 		document.getElementById("fehler").addEventListener("click", function(){
 			const headers = new Headers()
 		headers.append("Content-Type", "application/json", )
-		headers.append("Authorization", "Basic " + base64.encode("arburg:password"));
+		headers.append("Authorization", "Basic " + btoa("arburg:password"));
 
 	const body = {"message":"The force is strong with this one..."}
 
