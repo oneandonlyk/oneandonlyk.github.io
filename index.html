@@ -1,18 +1,20 @@
-<!DOCTYPE html>
-<html>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<body>
-  <p>Fehlermeldung <button onclick="fehlermeldung()">Senden</button></p>
-
-</body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aucobo-Commands</title>
+  </head>
+  <body>
+    <p>Fehlermeldung <button id="fehler">Senden</button></p>
+  </body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
 <Script>
 	(function($){
 		var obj = {table: []};
 		console.log("ready");
 		
-		function fehlermeldung(){
+		document.getElementById("fehler").addEventListener("click", function(){
 			$.ajax({
 			type: "POST",
 			url: "db.json",
