@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <body>
   <p>Fehlermeldung <button onclick="fehlermeldung()">Senden</button></p>
-  <script src="myJS.js"></script>
+
 </body>
 <script>
 	var obj = {table: []};
@@ -14,7 +14,7 @@
 		type: "POST",
 		url: "db.json",
 		// The key needs to match your method's input parameter (case-sensitive).
-		data: JSON.stringify({ {id:1, name:540, status:red }),
+		data: JSON.stringify({ id:1, name:540, status:red }),
 		contentType: "application/json; charset=utf-8",
 		dataType: "json",
 		success: function(data){alert(data);},
