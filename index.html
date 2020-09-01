@@ -6,7 +6,8 @@
     	<title>Aucobo-Commands</title>
   </head>
   <body>
-    	<p>Fehlermeldung <button id="fehler">Senden</button></p>
+    	<p>Kritischer Fehler <button id="kfehler">Senden</button></p>
+	<p>Fehlermeldung <button id="fehler">Senden</button></p>
 	<p>Repariert <button id="repariert">Senden</button></p>
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
@@ -14,12 +15,33 @@
 	(function($){
 		console.log("ready");
 		
+		document.getElementById("kfehler").addEventListener("click", function(){
+			const headers = new Headers()
+			headers.append("Content-Type", "application/json" )
+			headers.append("Authorization", "Basic " + btoa("arburg:password"));
+
+			const body = {"Status":"Red", "Maschine":"540"}
+
+			const options = {
+				  method: "POST",
+				  headers,
+				  mode: "cors",
+				  body: JSON.stringify(body)
+			}
+
+			fetch("https://arburg.aucobo-global.de/connectors/events", options).then(response => {
+				console.log(response)
+			}).catch(err => {
+				console.error("[error] " + err.message)
+			})
+		});
+		
 		document.getElementById("fehler").addEventListener("click", function(){
 			const headers = new Headers()
 			headers.append("Content-Type", "application/json" )
 			headers.append("Authorization", "Basic " + btoa("arburg:password"));
 
-			const body = {"Status":"Red"}
+			const body = {"Status":"Yellow", "Maschine":"540"}
 
 			const options = {
 				  method: "POST",
@@ -40,7 +62,7 @@
 			headers.append("Content-Type", "application/json" )
 			headers.append("Authorization", "Basic " + btoa("arburg:password"));
 
-			const body = {"Status":"Green"}
+			const body = {"Status":"Green", "Maschine":"540"}
 
 			const options = {
 				  method: "POST",
