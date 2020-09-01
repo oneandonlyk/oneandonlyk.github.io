@@ -16,16 +16,17 @@
 		
 		document.getElementById("fehler").addEventListener("click", function(){
 			const headers = new Headers()
-headers.append("Content-Type", "application/json")
+		headers.append("Content-Type", "application/json", )
+		headers.append("Authorization", "Basic " + base64.encode("arburg:password"));
 
-const body = {"message":"The force is strong with this one..."}
+	const body = {"message":"The force is strong with this one..."}
 
-const options = {
-  method: "POST",
-  headers,
-  mode: "cors",
-  body: JSON.stringify(body),
-}
+	const options = {
+	  method: "POST",
+	  headers,
+	  mode: "cors",
+	  body: JSON.stringify(body),
+	}
 
 fetch("https://arburg.aucobo-global.de/connectors/events", options).then(response => {
   console.log(response)
