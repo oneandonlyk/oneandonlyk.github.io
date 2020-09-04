@@ -47,7 +47,7 @@
 			headers.append("Content-Type", "application/json" )
 			headers.append("Authorization", "Basic " + btoa("arburg:password"));
 
-			const body = {"Status":"Red", "Maschine":"540"}
+			const body = {"machineId":"1", "station":"1","Maschinen-Typ":"540", "Status":"Red", "Fehlercode":"400"}
 
 			const options = {
 				  method: "POST",
@@ -68,7 +68,7 @@
 			headers.append("Content-Type", "application/json" )
 			headers.append("Authorization", "Basic " + btoa("arburg:password"));
 
-			const body = {"Status":"Yellow", "Maschine":"540"}
+			const body = {"machineId":"1", "station":"1","Maschinen-Typ":"540", "Status":"Yellow", "Fehlercode":"100"}
 
 			const options = {
 				  method: "POST",
@@ -89,7 +89,7 @@
 			headers.append("Content-Type", "application/json" )
 			headers.append("Authorization", "Basic " + btoa("arburg:password"));
 
-			const body = {"Status":"Green", "Maschine":"540"}
+			const body = {"machineId":"1", "station":"1","Maschinen-Typ":"540", "Status":"Green", "Fehlercode":"0"}
 
 			const options = {
 				  method: "POST",
